@@ -13,7 +13,7 @@ function addItemsHere() {
         description: 'description'
     };
     $.ajax({
-        url: '/tonsOfItems',
+        url: '/calculator',
         method: 'POST',
         data: items
     })
@@ -29,7 +29,7 @@ function addItemsHere() {
 
 function loadItemsHere() {
     $.ajax({
-        url: 'tonsOfItems',
+        url: '/calculator',
         method: '/GET'
     })
       .then((response) => {
