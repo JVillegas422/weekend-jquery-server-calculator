@@ -32,16 +32,16 @@ app.post('/addSomeNumbers', (req, res) => {
 function calculateNumbersResult(object) {
     console.log('Running calculateNumbersResult!');
 
-    if (object.mathType === '+') {
+    if (object.mathSymbol === '+') {
         object.mathResults = Number(object.firstValue) + Number(object.secondValue);
     }
-    else if (object.mathType === '-') {
+    else if (object.mathSymbol === '-') {
         object.mathResults = Number(object.firstValue) - Number(object.secondValue);
     }
-    else if (object.mathType === '*') {
+    else if (object.mathSymbol === '*') {
         object.mathResults = Number(object.firstValue) * Number(object.secondValue);
     }
-    else if (object.mathType === '/') {
+    else if (object.mathSymbol === '/') {
         object.mathResults = Number(object.firstValue) / Number(object.secondValue);
     }
     else {

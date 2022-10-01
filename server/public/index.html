@@ -14,7 +14,7 @@
         <h1>Server Side Calculator</h1>
     </header>
 
-    <form id="calculatorForm">
+    <!-- <form id="calculatorForm">
 
         <input
             id="firstValue"
@@ -44,43 +44,50 @@
         <h2 id="displayAnswer"></h2>
         <ul id="displayHistory">
         </ul>
-    </div>
+    </div> -->
 
     <!--------- 👇  Working on Stretch Goals 👇 ---------->
-    <!-- <div class="stretchGoal">
+    <div class="stretchGoal">
         <div>
             <h3 class="displayScreen">
                 <span id="firstValue"></span> 
                 <span id="mathSymbol"></span>
                 <span id="secondValue"></span>
-                <button id="btn" class="clearBtn">C</button>
+                <button id="clearBtn" class="btn">C</button>
             </h3>
         </div>
         <div>
         <div class="rowOfBtns">
-            <button class="numberBtn" number-sign="7">7</button>
-            <button class="numberBtn" number-sign="6">6</button>
-            <button class="numberBtn" number-sign="3">3</button>
-            <button class="mathSymbol" math-sign=".">.</button>
+            <button class="numberBtn data-sign">7</button>
+            <button class="numberBtn data-sign">6</button>
+            <button class="numberBtn data-sign">3</button>
+            <button class="numberBtn data-sign">.</button>
         </div>
         <div class="rowOfBtns">
-            <button class="numberBtn" number-sign="8">8</button>
-            <button class="numberBtn" number-sign="5">5</button>
-            <button class="numberBtn" number-sign="2">2</button>
-            <button class="mathSymbol" math-sign="0">0</button>
+            <button class="numberBtn data-sign">8</button>
+            <button class="numberBtn data-sign">5</button>
+            <button class="numberBtn data-sign">2</button>
+            <button class="numberBtn data-sign">0</button>
         </div>
         <div class="rowOfBtns">
-            <button class="numberBtn" number-sign="9">9</button>
-            <button class="numberBtn" number-sign="4">4</button>
-            <button class="numberBtn" number-sign="1">1</button>
-            <button class="mathSymbol" math-sign="=">=</button>
+            <button class="numberBtn data-sign">9</button>
+            <button class="numberBtn data-sign">4</button>
+            <button class="numberBtn data-sign">1</button>
+            <button id="equalsBtn">=</button>
         </div>
         <div class="rowOfBtns">
-            <button class="numberBtn" number-sign="+">+</button>
-            <button class="numberBtn" number-sign="-">-</button>
-            <button class="math-sign" math-sign="*">*</button>
-            <button class="math-sign" math-sign="/">/</button>
+            <button class="mathSymbols data-sign">+</button>
+            <button class="mathSymbols data-sign">-</button>
+            <button class="mathSymbols data-sign">*</button>
+            <button class="mathSymbols data-sign">/</button>
         </div>
-    </div> -->
+    </div> 
+
+    <div>
+        <h2 id="displayAnswer"></h2>
+        <ul id="displayHistory">
+        </ul>
+    </div>
+   
 </body>
 </html>

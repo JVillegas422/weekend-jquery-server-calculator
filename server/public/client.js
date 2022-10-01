@@ -2,13 +2,15 @@ console.log('In JS');
 
 $(document).ready(onReady);
 
-let mathType;
+let mathType = '';
 
 function onReady() {
     console.log('On ready!');
     $('#equalsBtn').on('click', onAddNumbers);
-    $('.mathSymbol').on('click', addMathType);
+    $('.mathSymbols').on('click', addMathType);
     $('#clearBtn').on('click', clearInputs);
+    // Added for stretch goals
+    $('.numberBtn').on('click', numberButtons);
 
     loadNumbers();
 }
@@ -18,10 +20,10 @@ function onAddNumbers(evt) {
     console.log('In onAddNumbers!');
 
     let calculateNumbers = {
-        firstValue: $('#firstValue').val(),
-        mathType: mathType,
-        secondValue: $('#secondValue').val(),
-        mathResults: 0,
+        firstValue: $('#firstValue').text(),
+        mathSymbol: mathSymbol,
+        secondValue: $('#secondValue').text(),
+        mathResults: 0
     };
 
     $.ajax({
@@ -62,23 +64,37 @@ function renderCalculation(calculateNumbers) {
         $('#displayAnswer').append(`
             <h2>${number.mathResults}</h2>
             <li>
-                ${number.firstValue} ${number.mathType} ${number.secondValue}
+                ${number.firstValue} ${number.mathSymbol} ${number.secondValue}
                 = ${number.mathResults}
             </li>
         `);
     }
 }
 
-function addMathType(evt) {
-    evt.preventDefault();
-    console.log('Adding mathSymbol + - * / ', mathType);
+function addMathType() {
+    // evt.preventDefault();
+    // console.log('Adding mathSymbol + - * / ', mathSymbol);
 
-    mathType = $(this).text();
+    mathSymbol = $(this).text();
+    // $('#mathSymbol').empty();
+    $('#mathSymbol').append(mathSymbol);
 }
 
 function clearInputs(evt) {
     evt.preventDefault();
 
-    $('#firstValue').val('');
-    $('#secondValue').val('');
+    $('#firstValue').text('');
+    $('#secondValue').text('');
 }
+
+// Added for stretch goals
+ function numberButtons() {
+    console.log('logging numbers');
+
+    if (mathSymbol === '') {
+        $('#firstValue').append($(this).text());
+    }
+    else if (mathSymbol === '+' || '-' || '*' || '/') {
+        $('#secondValue').append($(this).text());
+    }
+ }

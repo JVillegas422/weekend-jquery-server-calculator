@@ -1,4 +1,4 @@
-/* .stretchGoal {
+.stretchGoal {
     height: 400px;
     width: 370px;
     margin: auto;
@@ -20,7 +20,7 @@
     
 }
 
-.clearBtn {
+.btn {
     width: 75px;
     height: 60px;
     margin-left: 280px;
@@ -48,4 +48,4 @@ button {
     font-weight: 600;
     margin: 3px;
 }
- */
+
