@@ -2,12 +2,13 @@ console.log('In JS');
 
 $(document).ready(onReady);
 
-let mathType = '';
+let mathType;
 
 function onReady() {
     console.log('On ready!');
     $('#equalsBtn').on('click', onAddNumbers);
     $('.mathSymbol').on('click', addMathType);
+    $('#clearBtn').on('click', clearInputs);
 
     loadNumbers();
 }
@@ -62,11 +63,10 @@ function renderCalculation(calculateNumbers) {
             <h2>${number.mathResults}</h2>
             <li>
                 ${number.firstValue} ${number.mathType} ${number.secondValue}
+                = ${number.mathResults}
             </li>
         `);
     }
-    $('#firstValue').val('');
-    $('#secondValue').val('');
 }
 
 function addMathType(evt) {
@@ -74,4 +74,11 @@ function addMathType(evt) {
     console.log('Adding mathSymbol + - * / ', mathType);
 
     mathType = $(this).text();
+}
+
+function clearInputs(evt) {
+    evt.preventDefault();
+
+    $('#firstValue').val('');
+    $('#secondValue').val('');
 }
