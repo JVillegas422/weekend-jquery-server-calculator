@@ -10,6 +10,42 @@
     <script src="client.js"></script>
 </head>
 <body>
-    
+    <header>
+        <h1>Server Side Calculator</h1>
+    </header>
+
+    <form id="calculatorForm">
+
+        <input
+            id="firstValue"
+            type="number"
+         />
+        
+        <button id="addBtn" class="mathSymbol" data-sign="+">+</button>
+        
+        <button id="subtractBtn" class="mathSymbol" data-sign="-">-</button>
+
+        <button id="multiplyBtn" class="mathSymbol" data-sign="*">*</button>
+
+        <button id="divisionBtn" class="mathSymbol" data-sign="/">/</button>
+
+        <input 
+            id="secondValue"
+            type="number"
+        />
+
+        <button id="equalsBtn">=</button>
+        
+        <button id="clearBtn">C</button>
+
+    </form>
+
+    <h2 id="displayAnswer"></h2>
+
+    <div>
+        <ul id="displayHistory">
+        </ul>
+    </div>
+
 </body>
 </html>
