@@ -9,7 +9,7 @@ function onReady() {
     $('#equalsBtn').on('click', onAddNumbers);
     $('.mathSymbol').on('click', addMathType);
 
-    // renderCalculation();
+    loadNumbers();
 }
 
 function onAddNumbers(evt) {
@@ -19,16 +19,12 @@ function onAddNumbers(evt) {
     let calculateNumbers = {
         firstValue: $('#firstValue').val(),
         secondValue: $('#secondValue').val(),
-        mathType: mathType,
         mathResults: 0,
+        mathType: mathType
     };
 
-    // clear Inputs 
-    $('#firstValue').val('');
-    $('#secondValue').val('');
-
     $.ajax({
-        url: '/calculator',
+        url: '/numbers',
         method: 'POST',
         data: calculateNumbers
     })
@@ -44,44 +40,33 @@ function onAddNumbers(evt) {
 
 function loadNumbers() {
     $.ajax({
-        url: '/calculator',
-        method: '/GET'
+        url: '/numbers',
+        method: 'GET'
     })
-      .then((response) => {
-        console.log('/GET respponse', response);
+     .then((response) => {
+        console.log('GET response', response);
 
-        $('#displayAnswer').empty();
-
-        for (let numbers of response) {
-            $('#displayAnswer').append(`
-                <h2></h2>
-                <li>
-                    ${numbers.firstValue} ${numbers.secondValue}
-                </li>
-            `);
-        }
-
-        // renderCalculation(response);
-      })
-        .catch((err) => {
-            console.log('In GET, something went wrong!', err);
-        });
+        renderCalculation(response);
+    })
+    .catch((err) => {
+        console.log('In GET, something went wrong!', err);
+    });
 }
 
-function renderCalculation() {
+function renderCalculation(calculateNumbers) {
     console.log('In renderCalculation!');
     $('#displayAnswer').empty();
 
-    for (let numbers of calculateNumbers) {
+    for (let number of calculateNumbers) {
         $('#displayAnswer').append(`
-            <h2 id="displayAnswer"></h2>
-            <li id="displayHistory">
-                ${numbers.firstValue} ${numbers.secondValue}
+            <h2>${number.mathResults}</h2>
+            <li>
+                ${number.firstValue} ${number.mathType} ${number.secondValue}
             </li>
-        `)
+        `);
     }
-    // $('#firstValue').val('');
-    // $('#secondValue').val('');
+    $('#firstValue').val('');
+    $('#secondValue').val('');
 }
 
 function addMathType(evt) {
