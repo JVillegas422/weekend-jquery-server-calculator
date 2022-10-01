@@ -9,9 +9,14 @@ app.use(bodyParser.urlencoded({extended:true}));
 // Serve up static files
 app.use(express.static('server/public'));
 
+let numbersHistory = [];
+
 // GET & POST
 app.post('/calculator', (req, res) => {
     console.log('POST request');
+
+    numbersHistory.push(req.body);
+    console.log(numbersHistory);
 
     res.sendStatus(201);
 });

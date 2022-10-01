@@ -4,30 +4,34 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log('On ready!');
+    $('#equalsBtn').on('click', onAddNumbers);
 
 }
 
-function addItemsHere() {
-    let items = {
-        someItems: 'someItems',
-        description: 'description'
+function onAddNumbers(evt) {
+    evt.preventDefault();
+    console.log('In onAddNumbers!');
+    
+    let calculateNumbers = {
+        firstValue: $('#firstValue').val(),
+        secondValue: $('#secondValue').val(),
     };
     $.ajax({
         url: '/calculator',
         method: 'POST',
-        data: items
+        data: calculateNumbers
     })
       .then((response) => {
         console.log('In POST response', response);
 
-        loadItemsHere();
+        loadNumbers();
       })
         .catch((err) => {
             console.log('In POST, something went wrong!', err);
         });
 }
 
-function loadItemsHere() {
+function loadNumbers() {
     $.ajax({
         url: '/calculator',
         method: '/GET'
