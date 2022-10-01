@@ -6,12 +6,13 @@ function onReady() {
     console.log('On ready!');
     $('#equalsBtn').on('click', onAddNumbers);
 
+    renderCalculation();
 }
 
 function onAddNumbers(evt) {
     evt.preventDefault();
     console.log('In onAddNumbers!');
-    
+
     let calculateNumbers = {
         firstValue: $('#firstValue').val(),
         secondValue: $('#secondValue').val(),
@@ -39,14 +40,23 @@ function loadNumbers() {
       .then((response) => {
         console.log('/GET respponse', response);
 
-        renderItems();
+        renderCalculation(response);
       })
         .catch((err) => {
             console.log('In GET, something went wrong!', err);
         });
 }
 
-function renderItems() {
-    console.log('In render items!');
+function renderCalculation(calculateNumbers) {
+    console.log('In renderCalculation!');
+    $('#displayAnswer').empty();
 
+    for (let numbers of calculateNumbers) {
+        $('#displayAnswer').append(`
+            <h2 id="displayAnswer"></h2>
+            <li id="displayHistory"></li>
+        `)
+    }
+    $('#firstValue').val('');
+    $('#secondValue').val('');
 }

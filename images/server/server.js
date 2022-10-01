@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -24,7 +24,7 @@ app.post('/calculator', (req, res) => {
 app.get('/calculator', (req, res) => {
     console.log('GET the info!')
 
-    res.send(response)
+    res.send(numbersHistory);
 });
 
 
