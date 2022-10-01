@@ -22,10 +22,9 @@ app.get('/numbers', (req, res) => {
 app.post('/numbers', (req, res) => {
     console.log('POST request');
 
+    calculateNumbersResult(req.body);
     numbersHistory.push(req.body);
     console.log(numbersHistory);
-
-    calculateNumbersResult(numbersHistory);
 
     res.sendStatus(201);
 });
@@ -34,16 +33,16 @@ function calculateNumbersResult(object) {
     console.log('Running calculateNumbersResult!');
 
     if (object.mathType === '+') {
-        object.mathResults = object.firstValue + secondValue;
+        object.mathResults = Number(object.firstValue) + Number(object.secondValue);
     }
     else if (object.mathType === '-') {
-        object.mathResults = object.firstValue - secondValue;
+        object.mathResults = Number(object.firstValue) - Number(object.secondValue);
     }
     else if (object.mathType === '*') {
-        object.mathResults = object.firstValue * secondValue;
+        object.mathResults = Number(object.firstValue) * Number(object.secondValue);
     }
     else if (object.mathType === '/') {
-        object.mathResults = object.firstValue / secondValue;
+        object.mathResults = Number(object.firstValue) / Number(object.secondValue);
     }
     else {
         return false;

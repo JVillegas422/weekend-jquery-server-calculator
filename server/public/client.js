@@ -28,14 +28,14 @@ function onAddNumbers(evt) {
         method: 'POST',
         data: calculateNumbers
     })
-      .then((response) => {
+     .then((response) => {
         console.log('In POST response', response);
 
+    })
+    .catch((err) => {
+        console.log('In POST, something went wrong!', err);
+    });
         loadNumbers();
-      })
-        .catch((err) => {
-            console.log('In POST, something went wrong!', err);
-        });
 }
 
 function loadNumbers() {
