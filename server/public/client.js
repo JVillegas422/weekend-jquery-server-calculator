@@ -19,13 +19,13 @@ function onAddNumbers(evt) {
 
     let calculateNumbers = {
         firstValue: $('#firstValue').val(),
+        mathType: mathType,
         secondValue: $('#secondValue').val(),
         mathResults: 0,
-        mathType: mathType
     };
 
     $.ajax({
-        url: '/numbers',
+        url: '/addSomeNumbers',
         method: 'POST',
         data: calculateNumbers
     })
@@ -41,7 +41,7 @@ function onAddNumbers(evt) {
 
 function loadNumbers() {
     $.ajax({
-        url: '/numbers',
+        url: '/addSomeNumbers',
         method: 'GET'
     })
      .then((response) => {

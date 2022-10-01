@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,13 +13,13 @@ let numbersHistory = [];
 
 // GET & POST
 
-app.get('/numbers', (req, res) => {
+app.get('/addSomeNumbers', (req, res) => {
     console.log('GET the info!')
 
     res.send(numbersHistory);
 });
 
-app.post('/numbers', (req, res) => {
+app.post('/addSomeNumbers', (req, res) => {
     console.log('POST request');
 
     calculateNumbersResult(req.body);
