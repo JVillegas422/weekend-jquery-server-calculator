@@ -82,7 +82,7 @@ function renderCalculation(calculateNumbers) {
     $('#mathSymbol').text('');
 }
 
-// Will add/or change the math expression
+// Will add/or change the math symbol
 function addMathType() {
     console.log('Adding mathSymbol + - * / ', mathSymbol);
 
