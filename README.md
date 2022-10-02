@@ -8,7 +8,7 @@ For this project, I created a calculator that is able to run basic addition, sub
 
 ## Screen Shot
 
-![my calculator](images/myCalculator.jpeg)
+![my calculator](images/my_Calculator.jpeg)
 
 ## Prerequisites
 
