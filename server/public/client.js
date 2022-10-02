@@ -7,6 +7,7 @@ let firstValue = '';
 let secondValue = '';
 let mathResults = 0;
 
+// list of click listeners 
 function onReady() {
     console.log('On ready!');
     $('#equalsBtn').on('click', onAddNumbers);
@@ -14,11 +15,12 @@ function onReady() {
     $('#clearBtn').on('click', clearInputs);
     // Added for stretch goals
     $('.numberBtn').on('click', numbersDisplayScreen);
-    $('#equalsBtn').on('click', clearHistory);
+    $('#equalsBtn').on('click', equalsButton);
 
     loadNumbers();
 }
 
+// POST function runs once we click the equals button
 function onAddNumbers(evt) {
     evt.preventDefault();
     console.log('In onAddNumbers!');
@@ -45,6 +47,7 @@ function onAddNumbers(evt) {
         loadNumbers();
 }
 
+// GET function to send request for objects from server 
 function loadNumbers() {
     $.ajax({
         url: '/addSomeNumbers',
@@ -60,6 +63,7 @@ function loadNumbers() {
     });
 }
 
+// Appends the results to the DOM
 function renderCalculation(calculateNumbers) {
     console.log('In renderCalculation!');
     $('#displayAnswer').empty();
@@ -78,6 +82,7 @@ function renderCalculation(calculateNumbers) {
     $('#mathSymbol').text('');
 }
 
+// Will add/or change the math expression
 function addMathType() {
     console.log('Adding mathSymbol + - * / ', mathSymbol);
 
@@ -86,21 +91,16 @@ function addMathType() {
     $('#mathSymbol').append(mathSymbol);
 }
 
-// This clears any number or mathSymbol
-// on the calculator display screen
+// Clears any number or mathSymbol
+// in display screen after clicking "C"
 function clearInputs() {
-    $('#firstValue').text('');
-    $('#secondValue').text('');
-    $('#mathSymbol').text('');
-}
-
-// This clears the recent mathematical
-// equation after click "="
-function clearHistory() {
     location.reload($(this).text);
 }
 
 // Added for stretch goals
+
+// This will ensure the first & second values
+// are appended correctly within the display screen
  function numbersDisplayScreen() {
     if (mathSymbol === '') {
         firstValue = firstValue + $(this).text();
@@ -117,4 +117,10 @@ function clearHistory() {
         $('#secondValue').append(secondValue);
 
     }
+}
+
+// This will reset the display screen  
+// after clicking the "=" equal button
+function equalsButton() {
+    location.reload($(this).text);
 }

@@ -13,12 +13,15 @@ let numbersHistory = [];
 
 // GET & POST
 
+// GET server endpoint for array of objects 
 app.get('/addSomeNumbers', (req, res) => {
     console.log('GET the info!')
 
     res.send(numbersHistory);
 });
 
+// POST server endpoint which will take the objects
+// from the client side & add to current array of objects
 app.post('/addSomeNumbers', (req, res) => {
     console.log('POST request');
 
@@ -29,6 +32,7 @@ app.post('/addSomeNumbers', (req, res) => {
     res.sendStatus(201);
 });
 
+// This function will check & calculate answer
 function calculateNumbersResult(object) {
     console.log('Running calculateNumbersResult!');
 
