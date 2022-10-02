@@ -9,7 +9,7 @@
 }
 
 .displayScreen {
-    width: 270px;
+    width: 245px;
     height: 60px;
     border: solid black 2px;
     border-radius: 10px;
@@ -20,10 +20,11 @@ span {
     margin: 5px;;
 }
 
-.btn {
+#clearBtn {
     width: 75px;
     height: 60px;
-    margin-left: 280px;
+    margin-left: 250px;
+    margin-top: 0px;
 }
 
 .rowOfBtns {
@@ -49,3 +50,8 @@ button {
     margin: 3px;
 }
 
+.mathematicalHistory {
+    margin: 55px;
+    margin-top: -370px;
+    margin-left: -250px;
+}

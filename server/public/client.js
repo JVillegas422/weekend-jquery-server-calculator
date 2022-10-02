@@ -5,12 +5,13 @@ $(document).ready(onReady);
 let mathSymbol = '';
 let firstValue = '';
 let secondValue = '';
+let mathResults = 0;
 
 function onReady() {
     console.log('On ready!');
     $('#equalsBtn').on('click', onAddNumbers);
     $('.mathSymbols').on('click', addMathType);
-    $('#clearBtn').on('click', clearInputs);
+    $('#equalsBtn').on('click', clearInputs);
     // Added for stretch goals
     $('.numberBtn').on('click', numbersDisplayScreen);
 
@@ -71,6 +72,9 @@ function renderCalculation(calculateNumbers) {
             </li>
         `);
     }
+    $('#firstValue').text('');
+    $('#secondValue').text('');
+    $('#mathSymbol').text('');
 }
 
 function addMathType() {
@@ -81,11 +85,8 @@ function addMathType() {
     $('#mathSymbol').append(mathSymbol);
 }
 
-function clearInputs(evt) {
-    evt.preventDefault();
-
-    $('#firstValue').text('');
-    $('#secondValue').text('');
+function clearInputs() {
+    location.reload($(this).text);
 }
 
 // Added for stretch goals
