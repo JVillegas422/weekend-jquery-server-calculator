@@ -2,7 +2,9 @@ console.log('In JS');
 
 $(document).ready(onReady);
 
-let mathType = '';
+let mathSymbol = '';
+let firstValue = '';
+let secondValue = '';
 
 function onReady() {
     console.log('On ready!');
@@ -10,7 +12,7 @@ function onReady() {
     $('.mathSymbols').on('click', addMathType);
     $('#clearBtn').on('click', clearInputs);
     // Added for stretch goals
-    $('.numberBtn').on('click', numberButtons);
+    $('.numberBtn').on('click', numbersDisplayScreen);
 
     loadNumbers();
 }
@@ -72,11 +74,10 @@ function renderCalculation(calculateNumbers) {
 }
 
 function addMathType() {
-    // evt.preventDefault();
-    // console.log('Adding mathSymbol + - * / ', mathSymbol);
+    console.log('Adding mathSymbol + - * / ', mathSymbol);
 
     mathSymbol = $(this).text();
-    // $('#mathSymbol').empty();
+    $('#mathSymbol').empty();
     $('#mathSymbol').append(mathSymbol);
 }
 
@@ -88,13 +89,20 @@ function clearInputs(evt) {
 }
 
 // Added for stretch goals
- function numberButtons() {
-    console.log('logging numbers');
-
+ function numbersDisplayScreen() {
     if (mathSymbol === '') {
-        $('#firstValue').append($(this).text());
+        firstValue = firstValue + $(this).text();
+        console.log(firstValue);
+
+        $('#firstValue').empty();
+        $('#firstValue').append(firstValue);
+    } 
+    else {
+        secondValue += $(this).text()
+
+        console.log(secondValue);
+        $('#secondValue').empty();
+        $('#secondValue').append(secondValue);
+
     }
-    else if (mathSymbol === '+' || '-' || '*' || '/') {
-        $('#secondValue').append($(this).text());
-    }
- }
+}
