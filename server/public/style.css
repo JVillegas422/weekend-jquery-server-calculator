@@ -1,5 +1,11 @@
+body {
+    background-color: #0f3a43;
+}
+
 header {
     text-align: center;
+    text-shadow: 5px 5px 5px black;
+    color: rgb(46, 180, 180);
 }
 
 .stretchGoal {
@@ -10,6 +16,7 @@ header {
     border-radius: 1em;
     background-color: rgb(46, 180, 180);
     border: solid black 3px;
+    box-shadow: 5px 5px 5px black;
 }
 
 .displayScreen {
@@ -18,6 +25,7 @@ header {
     border: solid black 2px;
     border-radius: 10px;
     background-color: rgb(209, 208, 208);
+    box-shadow: 3px 3px 3px black;
 }
 
 span {
@@ -52,10 +60,15 @@ button {
     font-size: medium;
     font-weight: 600;
     margin: 3px;
+    box-shadow: 3px 3px 3px black;
 }
 
 .mathematicalHistory {
     margin: 55px;
     margin-top: -370px;
     margin-left: -250px;
+}
+
+#displayAnswer, #displayHistory {
+    color: rgb(46, 180, 180);   
 }
