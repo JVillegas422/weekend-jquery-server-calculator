@@ -11,9 +11,10 @@ function onReady() {
     console.log('On ready!');
     $('#equalsBtn').on('click', onAddNumbers);
     $('.mathSymbols').on('click', addMathType);
-    $('#equalsBtn').on('click', clearInputs);
+    $('#clearBtn').on('click', clearInputs);
     // Added for stretch goals
     $('.numberBtn').on('click', numbersDisplayScreen);
+    $('#equalsBtn').on('click', clearHistory);
 
     loadNumbers();
 }
@@ -85,7 +86,17 @@ function addMathType() {
     $('#mathSymbol').append(mathSymbol);
 }
 
+// This clears any number or mathSymbol
+// on the calculator display screen
 function clearInputs() {
+    $('#firstValue').text('');
+    $('#secondValue').text('');
+    $('#mathSymbol').text('');
+}
+
+// This clears the recent mathematical
+// equation after click "="
+function clearHistory() {
     location.reload($(this).text);
 }
 
